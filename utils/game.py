@@ -1,7 +1,9 @@
+from random import choice
+
 class Hangman:
     def __init__(self):
-        possible_words=['becode', 'learning', 'mathematics', 'sessions']
-        self.word_to_find=["b","e","c","o","d","e"]
+        self.possible_words=['becode', 'learning', 'mathematics', 'sessions']
+        self.word_to_find=list(choice(self.possible_words))
         self.lives=5
         self.correctly_guessed_letters=["_"] * len(self.word_to_find)
         self.wrongly_guessed_letters=[]
