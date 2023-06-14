@@ -17,15 +17,21 @@ class Hangman:
         guess = input("Give me an input letter.. ")
         while len(guess) > 1 or guess.isalpha() == False:
             guess = input("Must be letter and exactly just one letter!")
-
+            
         
         if guess in self.word_to_find:
-            self.correctly_guessed_letters.append(guess)
+            self.turn_count+=1
+            for i, x in enumerate(self.word_to_find):
+                if guess==x:
+                    self.correctly_guessed_letters[i]=guess
+           
         else:
+            self.turn_count+=1
             self.wrongly_guessed_letters.append(guess)
             self.error_count+=1
             self.lives-=1  
-
+        
+        
         
     def start_game(self):
         """ method that:
@@ -35,7 +41,12 @@ class Hangman:
         will print correctly_guessed_letters, bad_guessed_letters, life, error_count and turn_count at the end of each turn. """
         
         while self.lives > 0:
-            self.play()
+            print(f"Correctl letters:{self.correctly_guessed_letters} " + f"Bad letters: {self.wrongly_guessed_letters} " + f"Lives:{self.lives} " + f"Errors:{self.error_count} " + f"Turns:{self.turn_count}")
+            
+            if self.correctly_guessed_letters==self.word_to_find:
+                self.well_played()
+            else:    
+                self.play()
         else:
             self.game_over()    
 
@@ -48,7 +59,8 @@ class Hangman:
     def well_played(self):
         # method that will print You found the word: {word_to_find_here} in {turn_count_here} turns with {error_count_here} errors!
         print(f"You found the word: {self.word_to_find} in {self.turn_count} turns with {self.error_count} errors!")
+        quit()
 
 
-game = Hangman()
+game=Hangman()
 game.start_game()        
