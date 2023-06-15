@@ -1,16 +1,16 @@
-#Hangman game
+# Hangman game
 
-###Description
+### Description
 Creating hangman game played in terminal using/learning python OOP principles.
 
-###Installation
+### Installation
 Download the files. Python 3 is needed to execute the files.
 
-###Usage
+### Usage
 Run main.py in your terminal. 
 
-###Timeline
+### Timeline
 Completed within one day ~ 5 hours.
 
-###Personal situation
+### Personal situation
 Junior Data Scientist at BeCode Ghent.
